@@ -1,0 +1,127 @@
+$background-color : #e6e6e6;
+$main-color : #fc3a3a;
+$main-black : #4d4d4d;
+$green : #7DCE13;
+
+
+.Container{
+    width: 100%;
+    height: 100vh;
+    background-color: $background-color;
+    display: flex;
+
+    .leftBar{
+        width: 240px;
+        height: 100%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        position: relative;
+        padding: 0px 20px;
+
+        .leftBarIcon{
+            height: 100px;
+            padding: 10px 0px;
+            display: flex;
+            align-items: center;
+            img{
+                height: 100%;
+            }
+            span{
+                font-size: 26px;
+                font-weight: 800;
+                color: $main-color;
+            }
+        }
+
+        .leftBarList{
+            padding: 10px 0px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+
+            .leftBarListItem{
+                text-decoration: none;
+                text-align: center;
+                padding: 20px 0px;
+                margin: 10px 0px;
+                font-size: 24px;
+                font-weight: 800;
+                color: $main-color;
+                border-bottom: 2px solid #b3b3b3;
+                &:hover{
+                    background-color: #4d4d4d54;
+                    border-radius: 10px;
+                }
+            }
+
+            .activeListItem{
+                background-color: #4d4d4d54;
+                border-radius: 10px;
+            }
+        }
+
+        .leftBarHomeButton{
+            width: 180px;
+            padding: 10px 0px;
+            position: absolute;
+            bottom: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: $main-black;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            &:hover{
+                background-color: #4d4d4d54;
+                color: $main-color;
+            }
+            .homeButton{
+                font-size: 26px;
+                font-weight: 600;
+                color: $main-color;
+            }
+        }
+    }
+
+    .ContentBox{
+        width: 100%;
+        padding: 10px;   
+        height: 100vh;
+        overflow-y: scroll;
+        .title{
+            font-size: 40px;
+            padding: 16px 20px;
+            color: $main-black;
+        }
+        .topButtonBar{
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+    
+            .addButton{
+                width: 120px;
+                height: 40px;
+                font-size: 16px;
+                font-weight: 800;
+                background-color: $green;
+                border: none;
+                border-radius: 8px;
+                color: $background-color;
+                margin: 0px 10px;
+                cursor: pointer;
+                &:hover{
+                    -webkit-box-shadow: -1px 0px 43px 4px rgba(125,206,19,1);
+                    -moz-box-shadow: -1px 0px 43px 4px rgba(125,206,19,1);
+                    box-shadow: -1px 0px 43px 4px rgba(125,206,19,1);
+                }
+            }
+        }      
+    }
+}
+
