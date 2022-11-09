@@ -1,0 +1,69 @@
+$background-color : #e6e6e6;
+$main-color : #fc3a3a;
+$main-black : #4d4d4d;
+$green : #7DCE13;
+
+.searchList{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 40px;
+    .searchCard{
+        width: 1200px;
+        height: 240px;
+        box-shadow: 0px 0px 24px -2px rgba(0, 0, 0, 0.25);
+        border-radius: 16px;
+        margin: 20px auto;
+        display: flex;
+        overflow: hidden;
+        img{
+            height: 100%;
+        }
+        .searchAbout{
+            width: 640px;
+            margin-left: 24px;
+            .searchTitle{
+                padding: 10px 0px;
+                font-size: 26px;
+                font-weight: 600;
+                color: $main-black;
+                margin-top: 30px;
+            }
+            .searchDesc{
+                padding: 10px 0px;
+                height: 80px;
+                overflow: hidden;
+                color: $main-black;
+                opacity: 0.7;
+            }
+            .searchBottom{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .searchColor{
+                    color: $main-black;
+                    span{
+                        color: $main-color;
+                    }
+                }
+                button{
+                    width: 140px;
+                    height: 40px;
+                    background-color: $main-black;
+                    color: $main-color;
+                    border-radius: 12px;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 20px;
+                    font-weight: 600;
+                    &:hover{
+                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    }
+                }
+            }
+        }
+    }
+}
