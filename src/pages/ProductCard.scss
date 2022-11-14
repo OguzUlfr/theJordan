@@ -1,0 +1,58 @@
+$background-color : #e6e6e6;
+$main-color : #fc3a3a;
+$main-black : #4d4d4d;
+$green : #7DCE13;
+
+.productCard{
+    width: 260px;
+    height: 340px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+    position: relative;
+    .thumb{
+        width: 100%;
+    }
+    .title{
+        width: 100%;
+        padding:0px 20px;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        color: $main-black;
+        position: absolute;
+        bottom: 120px;
+    }
+    .bottomGroup{
+        padding:0px 10px;
+        height: 40px;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        bottom: 24px;
+        span{
+            width: 100px;
+            font-weight: 600;
+            text-align: center;
+            margin-left: 10px;
+        }
+        button{
+            width: 100px;
+            height: 34px;
+            font-size: 14px;
+            font-weight: 800;
+            color: $background-color;
+            background-color: $main-color;
+            border: none;
+            border-radius: 8px;
+            margin-left: 20px;
+            cursor: pointer;
+            &:hover{
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+        }
+    }
+}

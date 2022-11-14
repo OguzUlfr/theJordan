@@ -3,125 +3,565 @@ $main-color : #fc3a3a;
 $main-black : #4d4d4d;
 $green : #7DCE13;
 
-
-.Container{
+.Admin{
     width: 100%;
     height: 100vh;
-    background-color: $background-color;
+    border: 1px solid black;
+}
+.adminBox{
+    width: 100%;
+    height: 100vh;
     display: flex;
-
     .leftBar{
         width: 240px;
         height: 100%;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        position: relative;
+        background-color: rgba($color: $main-black, $alpha: 0.1);
         padding: 0px 20px;
-
-        .leftBarIcon{
+    
+        .brandAdmin{
+            width: 100%;
             height: 100px;
-            padding: 10px 0px;
-            display: flex;
-            align-items: center;
-            img{
-                height: 100%;
-            }
-            span{
-                font-size: 26px;
-                font-weight: 800;
-                color: $main-color;
-            }
-        }
-
-        .leftBarList{
-            padding: 10px 0px;
-            list-style: none;
-            display: flex;
-            flex-direction: column;
+            font-size: 32px;
+            font-weight: 600;
+            text-decoration: none;
+            color: $main-black;
             margin-top: 20px;
-
-            .leftBarListItem{
-                text-decoration: none;
+            .brandCard {
+                position: relative;
+                width: 100%;
+                height: 80px;
                 text-align: center;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
                 padding: 20px 0px;
-                margin: 10px 0px;
-                font-size: 24px;
-                font-weight: 800;
+              }
+              &:hover .brandCard {
+                transform: rotateY(180deg);
+              }
+    
+            .brandFront,.brandBack{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backface-visibility: hidden;
+                img{
+                    height: 80px;
+                }
+                backface-visibility: hidden;
+            }
+            .brandBack{
+                transform: rotateY(180deg);
                 color: $main-color;
-                border-bottom: 2px solid #b3b3b3;
-                &:hover{
-                    background-color: #4d4d4d54;
-                    border-radius: 10px;
+                font-size: 26px;
+                .homeIcon{
+                    margin-right: 10px;
+                    font-size: 40px;
+                    color: $main-black;
                 }
             }
+            &:hover{
+                transform: rotateY(180deg);
+            }
+        }
+    
+        .adminList{
+            list-style: none;
+            width: 100%;
+            height: 400px;
+            margin-top: 100px;
+            .listItem{
+                width: 100%;
+                padding: 0px 10px;
+                display: flex;
+                align-items: center;
+                height: 40px;
+                margin: 10px 0px;
+                font-size: 20px;
+                text-decoration: none;
+                color: $main-black;
+                font-weight: 400;
+                .listIcon{
+                    font-size: 26px;
+                    margin-right: 20px;
+                    color: $main-color;
+                }
+            }
+        }
+    }
+    .contentBox{
+        width: 100%;
+        height: 100%;
 
-            .activeListItem{
-                background-color: #4d4d4d54;
-                border-radius: 10px;
+        .title{
+            width: 100%;
+            padding: 40px 10px;
+            font-size: 30px;
+            font-weight: 600;
+            color: $main-color;
+        }
+        .topBar{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            button{
+                padding: 10px 40px;
+                font-weight: 600;
+                font-size: 20px;
+                background-color: $green;
+                border: none;
+                color: $background-color;
+                border-radius: 8px;
+                cursor: pointer;
+                margin: 0px 20px;
+                &:hover{
+                    box-shadow: 0px 0px 15px 0px rgba(125,206,19,1);
+                }
             }
         }
 
-        .leftBarHomeButton{
-            width: 180px;
-            padding: 10px 0px;
-            position: absolute;
-            bottom: 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            text-align: center;
-            font-size: 20px;
-            font-weight: 800;
-            color: $main-black;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-            &:hover{
-                background-color: #4d4d4d54;
-                color: $main-color;
+        .adList{
+            width: 100%;
+            max-height: 770px;
+            padding: 0px 20px;
+            overflow-y: scroll;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            .adCard{
+                width: 400px;
+                max-height: 156px;
+                border: 1px solid black;
+                border-radius: 5px;
+                position: relative;
+                margin: 30px 20px;
+                img{
+                    width: 100%;
+                    max-height: 100%;
+
+                    border-radius: 5px;
+                }
+                .deleteButton{
+                    font-size:40px;
+                    color: $background-color;
+                    cursor: pointer;
+                    position: absolute;
+                    top: -20px;
+                    right: -20px;
+                    background-color: #FF1E00;
+                    border-radius: 10px;
+                    padding: 5px;
+                    &:hover{
+                        box-shadow: 0px 0px 10px 2px rgba(255,30,0,1);
+                    }
+                }
             }
-            .homeButton{
-                font-size: 26px;
+        }
+
+        .productList{
+            width: 100%;
+            max-height: 770px;
+            padding: 0px 20px;
+            overflow-y: scroll;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+
+            .productBox{
+                width: 220px;
+                height: 280px;
+                position: relative;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+                border-radius: 10px;
+                margin: 16px;
+                img{
+                    width: 100%;
+                }
+                .title{
+                    font-size: 16px;
+                    padding: 10px 10px;
+                }
+                .buttonGroup{
+                    width: 100%;
+                    padding: 10px 10px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    position: absolute;
+                    bottom: 5px;
+                    button{
+                        font-size: 16px;
+                        font-weight: 600;
+                        padding: 5px 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: none;
+                        border-radius: 6px;
+                        color: $background-color;
+                        cursor: pointer;
+                        .buttonIcon{
+                            margin-right: 10px;
+                            font-size: 20px;
+                        }
+                    }
+                    .detail{
+                        background-color: #0D4C92;
+                        &:hover{
+                            box-shadow: 0px 0px 22px -6px rgba(13,76,146,1);
+                        }
+                    }
+                    .delete{
+                        background-color: #FF1E00;
+                        &:hover{
+                            box-shadow: 0px 0px 22px -6px rgba(255,30,0,1);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    .adModal{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .adModalCard{
+            width: 1200px;
+            height: 800px;
+            background-color: $background-color;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            .inputBox{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                input{
+                    opacity: 0;
+                }
+                .inputBack{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    z-index: 2;
+                    left: 0px;
+                    top: 0px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    opacity: 0.8;
+
+                    .imageIcon{
+                        font-size: 280px;
+                    }
+                    p{
+                        font-size: 80px;
+                        font-weight:300;
+                        margin-top: 50px;
+                        opacity: 0.5;
+                    }
+                    .clickIcon{
+                        position: absolute;
+                        right: 200px;
+                        font-size: 120px;
+                        opacity: 0.8;
+                        animation: scale 0.3s infinite;
+
+                        @keyframes scale {
+                            0%{transform: scale(1);opacity: 0.8;}
+                            100%{transform: scale(1.1);opacity: 0.4;}
+                        }
+                    }
+                }
+
+                .inputFront{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    z-index: 3;
+                    background-color: $background-color;
+                    padding: 20px 0px ;
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+
+                    .imgBox{
+                        width: 100%;
+                        height: 90%;
+                        background-size: contain;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    button{
+                        width: 180px;
+                        height: 60px;
+                        background-color: #0D4C92;
+                        border: none;
+                        border-radius: 16px;
+                        font-size: 20px;
+                        font-weight: 600;
+                        color: $background-color;
+                        cursor: pointer;
+                        margin-top: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .uploadIcon{
+                            color: $background-color;
+                            font-size: 30px;
+                            margin-right: 10px;
+                        }
+                        &:hover{
+                            box-shadow: 0px 0px 12px 0px rgba(13,76,146,1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .productModal{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        left: 0px;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .productModalCard{
+            width: 1200px;
+            height: 800px;
+            background-color: $background-color;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            .modalTitle{
+                width: 60%;
+                padding: 30px 30px;
+                font-size: 1.5rem;
                 font-weight: 600;
                 color: $main-color;
             }
-        }
-    }
+            form{
+                width: 100%;
+                height: 92%;
+                padding: 30px;
+                display: flex;
+                .formLeft{
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    label{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        color: $main-black;
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin: 16px 0px;
+                        span{
+                            border-left: 3px solid $main-color;
+                            padding: 0px 10px;
+                        }
+                        input{
+                            width: 320px;
+                            padding: 5px 10px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            background-color: rgba($color: $main-black, $alpha: 0.2);
+                            border: none;
+                            border-radius: 6px;
+                            &:focus{
+                                outline: 2px solid rgba($color: $main-black, $alpha: 0.4);
+                            }
+                        }
+                        textarea{
+                            padding: 5px 10px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            background-color: rgba($color: $main-black, $alpha: 0.2);
+                            border: none;
+                            border-radius: 6px;
+                            &:focus{
+                                outline: 2px solid rgba($color: $main-black, $alpha: 0.4);
+                            }
+                        }
+                    }
+                    .descInput,.aboutInput{
+                        align-items: flex-start;
+                    }
+                    .modelInput{
+                        select{
+                            width: 320px;
+                            padding: 5px 10px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            background-color: rgba($color: $main-black, $alpha: 0.2);
+                            border: none;
+                            border-radius: 6px;
+                            &:focus{
+                                outline: 2px solid rgba($color: $main-black, $alpha: 0.4);
+                            }
+                            option{
+                                padding: 5px 10px;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                } 
+                .formRight{
+                    width: 50%;
+                    height: 100%;
+                    padding: 10px 20px;
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    .thumbnail{
+                        width: 80%;
+                        height: 200px;
+                        position: relative;
+                        .thumbBack{
+                            height: 100%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: center;
+                            position: relative;
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            cursor: pointer;
+                                input{
+                                    width: 100%;
+                                    height:100%;
+                                    opacity: 0;
+                                }
+                                img{
+                                    height: 100%;
+                                    position: absolute;
+                                    animation: fade 0.8s infinite;
+                                    @keyframes fade {
+                                        0%{opacity: 1;}
+                                        50%{opacity: 0.2;}
+                                        100%{opacity: 1;}
+                                    }
+                                }
+                        }
+                        .thumbFront{
+                            width:100%;
+                            height: 100%;
+                            background-color: $background-color;
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            img{
+                                height: 100%;
+                            }
+                        }
+                    }
+                    .productImage{
+                        width: 80%;
+                        height: 180px;
+                        display: grid;
+                        grid-template-columns: auto auto auto auto auto;
+                        align-items: center;
+                        overflow-y: scroll;
+                        img{
+                            height: 60px;
+                            width: 60px;
+                            margin: 5px;
+                        }
+                    }
+                    .threeD{
+                        width: 80%;
+                        height: 180px;
+                        display: grid;
+                        grid-template-columns: auto auto auto auto auto;
+                        align-items: center;
+                        overflow-y: scroll;
+                        img{
+                            height: 60px;
+                            width: 60px;
+                            margin: 5px;
+                        }
+                        .addImage{
+                            label{
+                                background-image: url('https://i.ibb.co/Rh2wcn6/1024px-OOjs-UI-icon-add-svg.png');
+                            }
+                        }
+                    }
 
-    .ContentBox{
-        width: 100%;
-        padding: 10px;   
-        height: 100vh;
-        overflow-y: scroll;
-        .title{
-            font-size: 40px;
-            padding: 16px 20px;
-            color: $main-black;
-        }
-        .topButtonBar{
-            width: 100%;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-    
-            .addButton{
-                width: 120px;
-                height: 40px;
-                font-size: 16px;
-                font-weight: 800;
-                background-color: $green;
-                border: none;
-                border-radius: 8px;
-                color: $background-color;
-                margin: 0px 10px;
-                cursor: pointer;
-                &:hover{
-                    -webkit-box-shadow: -1px 0px 43px 4px rgba(125,206,19,1);
-                    -moz-box-shadow: -1px 0px 43px 4px rgba(125,206,19,1);
-                    box-shadow: -1px 0px 43px 4px rgba(125,206,19,1);
+                    .uploadButton{
+                        width: 120px;
+                        background-color: #54B435;
+                        border: none;
+                        border-radius: 6px;
+                        font-weight: 600;
+                        color: $background-color;
+                        cursor: pointer;
+                    }
+
+                    .addImage{
+                        width: 60px;
+                        height: 60px;
+                        margin: 5px;
+                        border: 1px solid rgba($color: $main-black, $alpha: 0.6);
+                        border-radius: 6px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        label{
+                            width: 100%;
+                            height: 100%;
+                            background-image: url('https://i.ibb.co/9hbBgN6/1024px-OOjs-UI-icon-add-svg.png');
+                            background-position: center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            input{
+                                opacity: 0;
+                            }
+                        &:hover{
+                            cursor: pointer;
+                        }
+                        }
+                    }
                 }
             }
-        }      
+        }
     }
+    .closeButton{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 40px;
+        color: #FF1E00;
+        padding: 2px 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 4;
+        &:hover{
+            background-color: #FF1E00;
+            color: $background-color;
+        }
 }
-
+}

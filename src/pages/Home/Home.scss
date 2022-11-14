@@ -113,7 +113,10 @@ $green : #7DCE13;
     align-items: center;
     font-size: 24px;
     font-weight: 800;
-    color: $main-black;
+    .categoryLink{
+        text-decoration: none;
+        color: $main-black;
+    }
     img{
         width: 100%;
         margin-bottom: 20px;

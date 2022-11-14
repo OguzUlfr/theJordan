@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Category() {
   const [category,setCategory] = useState();
@@ -37,8 +38,10 @@ function Category() {
                 {category &&
                     category.map(data => (
                       <SwiperSlide className='categoryCard' key={data.id}>
+                        <Link className='categoryLink' to={`/products/${data.name}`}> 
                         <img src={data.image} alt=''/>
                         {data.name}
+                        </Link>
                       </SwiperSlide>
                     ))
                 }

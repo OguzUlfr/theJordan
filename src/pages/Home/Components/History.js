@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
+import ProductCard from '../../ProductCard';
 
 import {AiOutlineHistory} from 'react-icons/ai'
 
@@ -11,29 +12,6 @@ function History() {
     useEffect(()=>{
         setHistory(JSON.parse(localStorage.getItem('history')));
     },[]);
-
-    console.log(history);
-
-    const addHistory = (thumb,title,model,id)=>{
-        if(!history){
-            const historyObject = [{
-                "thumb": thumb,
-                "title" : title,
-                "model" : model,
-                "id" : id
-            }];
-            localStorage.setItem("history", JSON.stringify(historyObject));
-        }else{
-            const historyObject = [...history,{
-                "thumb": thumb,
-                "title" : title,
-                "model" : model,
-                "id" : id
-            }];
-            localStorage.setItem("history", JSON.stringify(historyObject));
-        }
-            
-    }
 
   return (
     <div className='HistoryBox'>
@@ -51,7 +29,7 @@ function History() {
                     spaceBetween: 40,
                   },
                   1024: {
-                    slidesPerView: history === [] ? 5 : 1,
+                    slidesPerView: history ? 5 : 1,
                     spaceBetween: 50,
                   },
                 }}
@@ -60,13 +38,8 @@ function History() {
               >
         {history &&
             history.map(product => (
-                <SwiperSlide className='cardItem' key={product.id}>
-                    <img className='thumb' src={product.thumb} alt=''/>
-                    <div className='title'>{product.title}</div>
-                    <div className='bottomGroup'>
-                        <span>{product.model}</span>
-                        <button onClick={()=>addHistory('Deneme Title','Air Jordan işte',4)}>MORE</button>
-                    </div>
+                <SwiperSlide key={product.id}>
+                    <ProductCard thumb={product.thumb} title={product.title} model={product.model} id={product.id} />
                 </SwiperSlide>
             ))
         }
